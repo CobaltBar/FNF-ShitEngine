@@ -74,8 +74,8 @@ class Alphabet
 		return group;
 	}
 
-	public static function generateTextWithIcon(x:Float, y:Float, text:String, bold:Bool, alignment:Alignment, iconPath:String, ?scale:Float, ?xOffset:Float,
-			?yOffset:Float):FlxSpriteGroup
+	public static function generateTextWithIcon(x:Float, y:Float, text:String, bold:Bool, alignment:FlxTextAlign, iconPath:String, ?scale:Float,
+			?xOffset:Float, ?yOffset:Float):FlxSpriteGroup
 	{
 		var group:FlxSpriteGroup = new FlxSpriteGroup();
 		var chars:Array<String> = text.split("");
@@ -143,19 +143,12 @@ class Alphabet
 		}
 		switch (alignment)
 		{
-			case Left:
-			case Center:
+			case LEFT:
+			case CENTER:
 				group.x -= group.width / 2;
-			case Right:
+			case RIGHT:
 				group.x -= group.width;
 		}
 		return group;
 	}
-}
-
-enum Alignment
-{
-	Left;
-	Center;
-	Right;
 }
